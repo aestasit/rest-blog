@@ -1,0 +1,19 @@
+apply plugin: 'java'  
+apply plugin: 'jetty'
+apply plugin: 'idea'
+      
+// Project configuration is used for Maven deploy:
+version = '1.0-SNAPSHOT'
+group = 'com.aestasit.restdemo'
+jettyRun.contextPath = '/rest-blog'
+repositories {
+    mavenCentral()
+    mavenRepo urls: "http://repository.jboss.org/nexus/content/groups/public/"
+    mavenRepo urls: "https://oss.sonatype.org/content/repositories/sourceforge-releases/"
+}
+
+dependencies {
+    compile 'org.jboss.resteasy:resteasy-jaxrs:2.0.1.GA'
+    compile 'org.jboss.resteasy:resteasy-jettison-provider:2.0.1.GA'
+    compile 'javax.servlet:servlet-api:2.5'
+}
